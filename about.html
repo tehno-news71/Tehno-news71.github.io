@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | Tehno News</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #ffffff;
+            --text-gray: #e0e0e0;
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+        /* Фон: картинка + затемнение */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('images/digital-office.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        body::after {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+        header {
+            background-color: rgba(44, 62, 80, 0.95);
+            color: white;
+            padding: 1.4rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            z-index: 1;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            flex: 1;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .about-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        .about-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.4rem;
+        }
+        .about-section p {
+            margin-bottom: 1rem;
+        }
+
+        .single-btn-wrapper {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .main-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .main-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">← На главную</a>
+        <h1>TEHNO NEWS</h1>
+    </header>
+    <main class="container">
+        <h1>О нас</h1>
+
+        <div class="about-section">
+            <h2>Кто мы такие</h2>
+            <p>Tehno News — это независимый проект, который рассказывает о главных событиях в технологиях, финансах, бизнесе и мировых новостях простым и понятным языком.</p>
+            <p>Мы делаем упор на практическую пользу: наши материалы помогают малому бизнесу, инвесторам и обычным читателям быть в курсе важных трендов и принимать правильные решения.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>Наша миссия</h2>
+            <p>Давать достоверную информацию без лишней воды. Мы проверяем факты, структурируем сложные темы и показываем, как новости влияют на реальную жизнь и деньги.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>Как с нами связаться</h2>
+            <p>Если хочешь предложить тему, прислать новость или просто поболтать про технологии — пиши нам на почту: <strong>contact@tehno-news.io</strong></p>
+            <p>Также следи за нами в соцсетях — ссылки скоро появятся в футере сайта.</p>
+        </div>
+
+        <div class="single-btn-wrapper">
+            <a href="index.html" class="main-btn">На главную</a>
+        </div>
+    </main>
+    <footer>&copy; 2024 Tehno News. Все права защищены.</footer>
+</body>
+</html>
