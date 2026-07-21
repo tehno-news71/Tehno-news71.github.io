@@ -4,69 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tehno News — Главная</title>
-    <!-- Твой новый код верификации -->
+
+    <!-- Твой код верификации Яндекса -->
     <meta name="yandex-verification" content="0137f1b518105df2" />
-    <meta name="description" content="Здесь расскажут о мировых новостях 📰, об технологических новостях и помощи малым бизнесам.">
+    <meta name="description" content="Новости, технологии, помощь бизнесу. Дизайн в стиле цифрового офиса с футуристичными элементами.">
+
     <style>
         :root {
             --primary-color: #2c3e50;
-            --accent-color: #e67e22;
-            --bg-color: #f4f4f4;
-            --text-color: #333;
-            --text-gray: #666;
-            --card-bg: #ffffff;
+            --accent-color: #3498db; /* Холодный синий — в тон голограммам на фото */
+            --text-color: #ffffff;
+            --text-gray: #e0e0e0;
+            --card-bg: rgba(255, 255, 255, 0.88);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            position: relative;
         }
+
+        /* --- ФОН: ЦИФРОВОЙ ОФИС --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/digital-office.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+        }
+
+        /* Затемнение фона (чтобы текст читался) */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Чуть меньше затемнения, чем в прошлом варианте, т.к. фото само по себе не слишком яркое */
+            background: rgba(0, 0, 0, 0.45); 
+            z-index: -1;
+        }
+
         header {
-            background-color: var(--primary-color);
+            background-color: rgba(44, 62, 80, 0.9);
             color: white;
-            padding: 1.2rem;
+            padding: 1.4rem;
             text-align: center;
+            backdrop-filter: blur(10px);
+            z-index: 1;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
+
         header h1 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 400;
             letter-spacing: 1px;
             margin: 0;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
+
         .site-tagline {
             font-size: 0.95rem;
             opacity: 0.9;
             font-weight: 300;
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
         }
+
         .container {
             max-width: 600px;
             margin: 0 auto;
             padding: 1.5rem;
             flex: 1;
             width: 100%;
+            position: relative;
+            z-index: 2;
         }
+
         .section-title {
-            color: var(--primary-color);
+            color: var(--accent-color);
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
             padding-left: 5px;
             border-left: 4px solid var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
-        /* Стили для ленты новостей (как на скриншоте) */
+
+        /* Лента новостей */
         .news-list { list-style: none; padding: 0; }
         .news-item {
             background: var(--card-bg);
             padding: 1.2rem;
             margin-bottom: 1.2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             display: flex;
             gap: 1rem;
             align-items: flex-start;
@@ -74,15 +119,14 @@
         }
         .news-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
-        
-        /* Иконка/заглушка слева (как на примере) */
+
         .news-icon {
             flex-shrink: 0;
             width: 60px;
             height: 60px;
-            background-color: #eee;
+            background-color: #f0f4f8;
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -91,9 +135,6 @@
             font-size: 1.2rem;
             overflow: hidden;
         }
-        /* Если хочешь картинку вместо цвета, раскомментируй и вставь src:
-        .news-icon img { width: 100%; height: 100%; object-fit: cover; } 
-        */
 
         .news-content { flex-grow: 1; }
         .news-category {
@@ -133,8 +174,11 @@
         .actions {
             padding: 2rem 1rem;
             text-align: center;
-            border-top: 1px solid #ddd;
-            background: #fff;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 2;
         }
         .btn-group {
             display: flex;
@@ -151,9 +195,12 @@
             border-radius: 6px;
             font-weight: 600;
             text-align: center;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
-        .btn:hover { background-color: #34495e; }
+        .btn:hover { 
+            background-color: #34495e; 
+            transform: scale(1.02);
+        }
         .btn-secondary {
             background-color: transparent;
             border: 2px solid var(--primary-color);
@@ -163,25 +210,28 @@
             background-color: var(--primary-color);
             color: white;
         }
+
         footer {
             text-align: center;
             padding: 1rem;
-            color: #999;
+            color: rgba(255,255,255,0.7);
             font-size: 0.8rem;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Tehno-news</h1>
-        <p class="site-tagline">Здесь расскажут о мировых новостях 📰, об технологических новостях и помощи малым бизнесам.</p>
+        <h1>TEHNO NEWS</h1>
+        <p class="site-tagline">Здесь расскажут о мировых новостях 📰, технологиях и помощи малым бизнесам.</p>
     </header>
 
     <main class="container">
         <h2 class="section-title">Главные новости</h2>
 
         <ul class="news-list">
-            <!-- Новость 1: Политика -->
+            <!-- Новость 1 -->
             <li class="news-item">
                 <div class="news-icon">🏛️</div>
                 <div class="news-content">
@@ -191,8 +241,7 @@
                     <span class="news-date">10 мин назад</span>
                 </div>
             </li>
-
-            <!-- Новость 2: Мир -->
+            <!-- Новость 2 -->
             <li class="news-item">
                 <div class="news-icon">🌍</div>
                 <div class="news-content">
@@ -202,73 +251,59 @@
                     <span class="news-date">25 мин назад</span>
                 </div>
             </li>
-
-            <!-- Новость 3: Дипломатия -->
+            <!-- Новость 3 -->
             <li class="news-item">
                 <div class="news-icon">📜</div>
                 <div class="news-content">
                     <span class="news-category">Дипломатия</span>
-                    <a href="news-detail.html" class="news-title">МИД Казахстана осудил удары БПЛА по танкерам в Черном море</a>
-                    <p class="news-excerpt">В Астане подчеркнули важность сохранения свободы судоходства и призвали стороны к деэскалации напряженности в регионе.</p>
+                    <a href="news-detail.html" class="news-title">МИД Казахстана осудил удары БПЛА по танкерам в Чёрном море</a>
+                    <p class="news-excerpt">В Астане подчеркнули важность сохранения свободы судоходства и призвали стороны к деэскалации напряжённости в регионе.</p>
                     <span class="news-date">40 мин назад</span>
                 </div>
             </li>
-
-            <!-- Новость 4: Происшествия -->
+            <!-- Новость 4 -->
             <li class="news-item">
                 <div class="news-icon">🏔️</div>
                 <div class="news-content">
                     <span class="news-category">Происшествия</span>
-                    <a href="news-detail.html" class="news-title">На Эльбрусе обнаружили тело 11-летнего мальчика и его пострадавшего отца</a>
-                    <p class="news-excerpt">Спасатели эвакуировали мужчину в тяжелом состоянии. Ведется расследование причин трагедии на сложном участке маршрута.</p>
+                    <a href="news-detail.html" class="news-title">На Эльбрусе обнаружили тело 11‑летнего мальчика и его пострадавшего отца</a>
+                    <p class="news-excerpt">Спасатели эвакуировали мужчину в тяжёлом состоянии. Ведётся расследование причин трагедии на сложном участке маршрута.</p>
                     <span class="news-date">1 час назад</span>
                 </div>
             </li>
-
-            <!-- Новость 5: Спорт -->
+            <!-- Новость 5 -->
             <li class="news-item">
                 <div class="news-icon">🎾</div>
                 <div class="news-content">
                     <span class="news-category">Спорт</span>
-                    <a href="news-detail.html" class="news-title">Андрей Рублев одержал первую за полтора года победу на турнирах АТР</a>
-                    <p class="news-excerpt">Российский теннисист в трех сетах обыграл прошлогоднего финалиста турнира, показав уверенную игру на задней линии.</p>
+                    <a href="news-detail.html" class="news-title">Андрей Рублёв одержал первую за полтора года победу на турнирах АТР</a>
+                    <p class="news-excerpt">Российский теннисист в трёх сетах обыграл прошлогоднего финалиста турнира, показав уверенную игру на задней линии.</p>
                     <span class="news-date">2 часа назад</span>
                 </div>
             </li>
-
-            <!-- Новость 6: Технологии -->
+            <!-- Новость 6 -->
             <li class="news-item">
                 <div class="news-icon">🖥️</div>
                 <div class="news-content">
                     <span class="news-category">Технологии</span>
                     <a href="tech-detail.html" class="news-title">Чипы нового поколения: меньше энергии, больше мощности</a>
-                    <p class="news-excerpt">Новые полупроводники обещают революцию в мобильных устройствах и дата-центрах благодаря 3-нм техпроцессу.</p>
+                    <p class="news-excerpt">Новые полупроводники обещают революцию в мобильных устройствах и дата‑центрах благодаря 3‑нм техпроцессу.</p>
                     <span class="news-date">3 часа назад</span>
-                </div>
-            </li>
-
-            <!-- Новость 7: ИИ -->
-            <li class="news-item">
-                <div class="news-icon">🤖</div>
-                <div class="news-content">
-                    <span class="news-category">ИИ</span>
-                    <a href="tech-detail.html" class="news-title">Kimi K3: новая ИИ‑модель из Китая с 2,8 трлн параметров</a>
-                    <p class="news-excerpt">Модель демонстрирует рекордные результаты в задачах программирования и обработки естественного языка на китайском и английском.</p>
-                    <span class="news-date">4 часа назад</span>
                 </div>
             </li>
         </ul>
     </main>
 
-    <!-- Кнопки в самом низу, как мы и договаривались -->
     <div class="actions">
         <div class="btn-group">
-            <a href="news.html" class="btn">Читать больше новостей</a>
-            <a href="tehno-news.html" class="btn btn-secondary">Техно-новости</a>
-            <a href="about-us.html" class="btn btn-secondary">О нас</a>
+            <a href="news.html" class="btn">Все новости</a>
+            <a href="market.html" class="btn btn-secondary">Рынок валют и акции</a>
+            <a href="business-help.html" class="btn btn-secondary">Помощь бизнесу</a>
         </div>
     </div>
 
-    <footer>&copy; 2026 Tehno News. Все права защищены.</footer>
+    <footer>
+        &copy; 2026 Tehno News. Все права защищены.
+    </footer>
 </body>
 </html>
