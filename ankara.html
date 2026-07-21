@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Союз России, Турции, Китая и Ирана | Tehno News</title>
+    <!-- Сюда можно вставить тот же CSS блок, что и выше, или вынести его в отдельный файл style.css -->
+    <style>
+        :root { --primary-color: #2c3e50; --accent-color: #3498db; --text-color: #ffffff; --text-gray: #e0e0e0; --card-bg: rgba(255, 255, 255, 0.95); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; color: var(--text-color); line-height: 1.7; display: flex; flex-direction: column; min-height: 100vh; position: relative; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/digital-office.jpg'); background-size: cover; z-index: -2; }
+        body::after { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); z-index: -1; }
+        header { background-color: rgba(44, 62, 80, 0.95); color: white; padding: 1.4rem; text-align: center; backdrop-filter: blur(10px); z-index: 1; }
+        .back-link { display: inline-block; margin-bottom: 1rem; color: var(--accent-color); text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        .container { max-width: 600px; margin: 0 auto; padding: 1.5rem; flex: 1; width: 100%; position: relative; z-index: 2; }
+        .article-title { color: var(--accent-color); font-size: 1.8rem; margin-bottom: 1rem; line-height: 1.2; text-align: center; }
+        .article-meta { color: var(--text-gray); font-size: 0.85rem; margin-bottom: 2rem; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+        .article-content { background: var(--card-bg); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .article-content p { margin-bottom: 1.2rem; color: #333; }
+        footer { text-align: center; padding: 1rem; color: rgba(255,255,255,0.6); font-size: 0.75rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">← Назад к новостям</a>
+        <h1>TEHNO NEWS</h1>
+    </header>
+
+    <main class="container">
+        <h1 class="article-title">На конференции в Анкаре призвали создать союз России, Турции, Китая и Ирана</h1>
+        <div class="article-meta">Категория: Мир | Время чтения: 3 мин | 3 дня назад</div>
+
+        <div class="article-content">
+            <p>На международной конференции в столице Турции прозвучало предложение о формировании нового экономического и политического блока. Инициаторами выступили представители экспертного сообщества нескольких стран.</p>
+            <p>Основная цель предполагаемого союза — создание альтернативных логистических цепочек и укрепление финансовой независимости участников от западных платежных систем. Особое внимание планируется уделить развитию транспортных коридоров.</p>
+            <p>Эксперты считают, что реализация этой инициативы потребует серьезной дипломатической работы, но может стать важным шагом в формировании многополярного мира.</p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Tehno News. Все права защищены.
+    </footer>
+</body>
+</html>
