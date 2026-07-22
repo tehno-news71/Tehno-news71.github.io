@@ -6,7 +6,6 @@
     <title>Tehno-news71 — Свежие новости</title>
     <meta name="description" content="Tehno-news71 свежие новости: технологии, спорт, происшествия и аналитика. Читай первым.">
     <meta name="keywords" content="новости, техно новости, tehno-news71, свежие события">
-    <!-- Сюда вставь свой код верификации Яндекс Вебмастера -->
     <meta name="yandex-verification" content="0137f1b518105df2">
     <style>
         :root {
@@ -316,6 +315,7 @@
         </div>
     </main>
     <button id="report-error-btn">⚠️ Сообщить об ошибке</button>
+
     <div id="donate-modal">
         <div class="modal-content">
             <h3 class="modal-title">Поддержите сайт</h3>
@@ -327,13 +327,14 @@
             <button class="btn-close" onclick="closeDonateModal()">Закрыть</button>
         </div>
     </div>
+
     <div id="error-modal">
         <div class="modal-content">
             <div class="modal-title">Сообщить об ошибке</div>
-            <div class="modal-text">
+            <div style="margin-bottom:1.5rem;">
                 Если ты нашёл ошибку на странице, скопируй текст ниже и пришли его владельцу сайта. Это поможет быстро всё исправить.
                 <br><br>
-                URL страницы: <span id="error-url" style="font-family:monospace; color:#e74c3c;"></span>
+                URL страницы: <span id="error-url" style="font-family: monospace; color: #e74c3c;"></span>
             </div>
             <div class="modal-actions">
                 <button class="btn-copy" onclick="copyErrorInfo()">Копировать</button>
@@ -341,3 +342,41 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.addEventListener('load', () => {
+    const splash = document.getElementById('splash-screen');
+    setTimeout(() => {
+        splash.style.opacity = '0';
+        setTimeout(() => {
+            splash.style.display = 'none';
+        }, 1000);
+    }, 2500);
+});
+
+function openDonateModal() {
+    document.getElementById('donate-modal').style.display = 'flex';
+}
+
+function closeDonateModal() {
+    document.getElementById('donate-modal').style.display = 'none';
+}
+
+function openErrorModal() {
+    const url = window.location.href;
+    document.getElementById('error-url').textContent = url;
+    document.getElementById('error-modal').style.display = 'flex';
+}
+
+function closeErrorModal() {
+    document.getElementById('error-modal').style.display = 'none';
+}
+
+function copyErrorInfo() {
+    const url = document.getElementById('error-url').textContent;
+    navigator.clipboard.writeText(url).then(() => {
+        alert('URL скопирован!');
+    });
+}
+
+document.getElementById('report-error-btn').addEventListener('click', openErrorModal);
