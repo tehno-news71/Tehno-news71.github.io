@@ -3,31 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title=Чипы нового поколения | Tehno News</title>
+    <title>Чипы нового поколения | Tehno News</title>
     <style>
-        :root { --primary-color: #2c3e50; --accent-color: #3498db; --text-color: #ffffff; --text-gray: #e0e0e0; --card-bg: rgba(255, 255, 255, 0.95); }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; color: var(--text-color); line-height: 1.7; display: flex; flex-direction: column; min-height: 100vh; position: relative; }
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/digital-office.jpg'); background-size: cover; z-index: -2; }
-        body::after { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); z-index: -1; }
-        header { background-color: rgba(44, 62, 80, 0.95); color: white; padding: 1.4rem; text-align: center; backdrop-filter: blur(10px); z-index: 1; }
-        .back-link { display: inline-block; margin-bottom: 1rem; color: var(--accent-color); text-decoration: none; font-weight: 600; }
-        .back-link:hover { text-decoration: underline; }
-        .container { max-width: 600px; margin: 0 auto; padding: 1.5rem; flex: 1; width: 100%; position: relative; z-index: 2; }
-        .article-title { color: var(--accent-color); font-size: 1.8rem; margin-bottom: 1rem; line-height: 1.2; text-align: center; }
-        .article-meta { color: var(--text-gray); font-size: 0.85rem; margin-bottom: 2rem; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
-        .article-content { background: var(--card-bg); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .article-content p { margin-bottom: 1.2rem; color: #333; }
-
-        .single-btn-wrapper { margin-top: 2rem; text-align: center; }
-        .main-btn {
-            background-color: var(--accent-color); color: white; padding: 1rem 2rem;
-            text-decoration: none; border-radius: 50px; font-weight: 600;
-            transition: all 0.3s ease; display: inline-block;
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333333;
+            --text-gray: #7f8c8d;
+            --card-bg: #ffffff;
         }
-        .main-btn:hover { background-color: #2980b9; transform: scale(1.05); }
-
-        footer { text-align: center; padding: 1rem; color: rgba(255,255,255,0.6); font-size: 0.75rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+        header {
+            background-color: #ffffff;
+            color: var(--primary-color);
+            padding: 1.4rem;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--accent-color);
+        }
+        .back-link:hover { text-decoration: none; color: #2980b9; }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            flex: 1;
+            width: 100%;
+        }
+        .article-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+        .article-meta {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        .article-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: #444;
+        }
+        .single-btn-wrapper {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .main-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+        }
+        .main-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: rgba(0,0,0,0.3);
+            font-size: 0.75rem;
+            border-top: 1px solid #eee;
+        }
     </style>
 </head>
 <body>
@@ -36,7 +108,7 @@
         <h1>TEHNO NEWS</h1>
     </header>
     <main class="container">
-        <h1 class="article-title">Чипы нового поколения: меньше энергии, больше мощности (AMD EPYC Venice,Qualcomm Snapdragon 8 Elite Gen 6 в октябре этого года ожидается,Huawei Kirin 9050 в сентябре выйдет,Intel Panther Lake  2026-2027 года</h1>
+        <h1 class="article-title">Чипы нового поколения: меньше энергии, больше мощности</h1>
         <div class="article-meta">Категория: Технологии | Время чтения: 4 мин | Сегодня</div>
         <div class="article-content">
             <p>Новые полупроводники, произведённые по 3‑нм техпроцессу, позволяют снизить энергопотребление устройств на 30–40% при одновременном росте вычислительной мощности.</p>
@@ -47,6 +119,6 @@
             <a href="index.html" class="main-btn">На главную</a>
         </div>
     </main>
-    <footer>&copy; 2024 Tehno News. Все права защищены.</footer>
+    <footer>&copy; 2026 Tehno News. Все права защищены.</footer>
 </body>
 </html>
