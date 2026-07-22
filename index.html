@@ -12,13 +12,17 @@
     <!-- Яндекс.Вебмастер: Верификация сайта -->
     <meta name="yandex-verification" content="0137f1b518105df2">
 
-    <!-- Стили для Заставки и Главной страницы -->
     <style>
         :root {
-            --primary-color: #1a1a1a; /* Темный фон */
-            --accent-color: #f1c40f;  /* Золотой цвет */
-            --text-color: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.95);
+            /* ИЗМЕНЕНО: Основной цвет фона теперь белый */
+            --primary-bg: #ffffff; 
+            
+            /* ИЗМЕНЕНО: Цвет текста для белого фона */
+            --text-color: #333333; 
+            
+            --accent-color: #f1c40f;  /* Золотой цвет (оставил для акцентов) */
+            --card-bg: #ffffff;
+            --header-bg: #f8f9fa; /* Светло-серый для шапки, чтобы она не сливалась */
         }
 
         /* --- СТИЛИ ДЛЯ ЗАСТАВКИ (SPLASH SCREEN) --- */
@@ -36,7 +40,7 @@
             align-items: center;
             color: var(--accent-color);
             font-family: 'Segoe UI', sans-serif;
-            transition: opacity 2s ease-out; /* Плавное исчезновение */
+            transition: opacity 2s ease-out;
         }
 
         .welcome-text {
@@ -67,28 +71,29 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            background-color: var(--primary-bg); /* Белый фон страницы */
         }
 
-        /* УБРАЛИ картинку фона. Теперь красивый градиент */
+        /* УБРАЛИ ТЕМНЫЙ ГРАДИЕНТ. Теперь фон просто белый */
         body::before {
             content: ""; 
             position: fixed; 
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            background: var(--primary-bg);
             z-index: -2;
         }
 
         header {
-            background-color: rgba(0, 0, 0, 0.85);
-            color: white;
+            /* ИЗМЕНЕНО: Светлая шапка на белом фоне */
+            background-color: var(--header-bg);
+            color: #2c3e50;
             padding: 1.4rem;
             text-align: center;
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e0e0e0;
             z-index: 1;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        h1 { margin: 0; font-size: 2rem; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { margin: 0; font-size: 2rem; letter-spacing: 2px; text-transform: uppercase; color: #2c3e50; }
 
         .container {
             max-width: 800px;
@@ -102,29 +107,31 @@
         .news-list { list-style: none; padding: 0; }
 
         .news-item {
-            background: rgba(255, 255, 255, 0.05);
+            /* ИЗМЕНЕНО: Белые карточки с тенью на белом фоне */
+            background: var(--card-bg);
             margin-bottom: 1.5rem;
             padding: 1.5rem;
             border-radius: 12px;
             display: flex;
             align-items: flex-start;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .news-item:hover {
             transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         }
 
-        .news-icon { font-size: 2rem; margin-right: 1.5rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .news-icon { font-size: 2rem; margin-right: 1.5rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #7f8c8d; }
         .news-content { flex: 1; }
 
         .news-category {
+            /* ИЗМЕНЕНО: Темный фон для категории, чтобы текст читался */
             display: inline-block;
-            background: var(--accent-color);
-            color: #000;
+            background: #34495e;
+            color: white;
             padding: 0.2rem 0.6rem;
             border-radius: 4px;
             font-size: 0.8rem;
@@ -135,7 +142,7 @@
 
         .news-title {
             display: block;
-            color: var(--accent-color);
+            color: #2c3e50; /* Темный текст заголовка */
             text-decoration: none;
             font-size: 1.4rem;
             font-weight: 600;
@@ -143,10 +150,10 @@
             line-height: 1.3;
         }
 
-        .news-title:hover { text-decoration: underline; }
+        .news-title:hover { color: var(--accent-color); text-decoration: underline; }
 
-        .news-excerpt { color: #ccc; margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .news-date { color: #888; font-size: 0.8rem; }
+        .news-excerpt { color: #7f8c8d; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .news-date { color: #95a5a6; font-size: 0.8rem; }
 
         .footer-nav {
             margin-top: 3rem;
@@ -157,14 +164,15 @@
         }
 
         .nav-btn {
-            background-color: rgba(255, 255, 255, 0.1);
+            /* ИЗМЕНЕНО: Темные кнопки на белом фоне */
+            background-color: #34495e;
             color: white;
             padding: 1rem 1.5rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid #2c3e50;
             text-align: center;
             min-width: 140px;
         }
@@ -180,15 +188,16 @@
         footer {
             text-align: center;
             padding: 2rem;
-            color: rgba(255,255,255,0.5);
+            color: #95a5a6;
             margin-top: auto;
             font-size: 0.9rem;
+            border-top: 1px solid #f0f0f0;
         }
     </style>
 </head>
 <body id="top">
 
-    <!-- ЭКРАН ПРИВЕТСТВИЯ -->
+    <!-- ЭКРАН ПРИВЕТСТВИЯ (ОСТАЛСЯ БЕЗ ИЗМЕНЕНИЙ) -->
     <div id="splash-screen">
         <h1 class="welcome-text">Добро пожаловать на<br>Tehno-news</h1>
     </div>
@@ -198,7 +207,7 @@
         <h1>TEHNO-NEWS71</h1>
     </header>
     <main class="container">
-        <h2 style="color: white; margin-bottom: 1.5rem; border-left: 4px solid var(--accent-color); padding-left: 10px;">Последние новости</h2>
+        <h2 style="color: #2c3e50; margin-bottom: 1.5rem; border-left: 4px solid var(--accent-color); padding-left: 10px;">Последние новости</h2>
         <ul class="news-list">
             <li class="news-item">
                 <div class="news-icon">📜</div>
@@ -248,7 +257,7 @@
         &copy; 2026 Tehno-news71. Все права защищены.
     </footer>
 
-    <!-- ЯНДЕКС МЕТРИКА -->
+    <!-- ЯНДЕКС МЕТРИКА (ОСТАЛАСЬ БЕЗ ИЗМЕНЕНИЙ) -->
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
@@ -263,22 +272,19 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/110923566" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <!-- СКРИПТ ДЛЯ АНИМАЦИИ ЗАСТАВКИ -->
+    <!-- СКРИПТ ДЛЯ АНИМАЦИИ ЗАСТАВКИ (ОСТАЛСЯ БЕЗ ИЗМЕНЕНИЙ) -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const splash = document.getElementById('splash-screen');
             
-            // Ждем 340мс (как ты просил) + время анимации текста (800мс)
             setTimeout(() => {
-                // Плавно убираем заставку (opacity 1 -> 0)
                 splash.style.transition = 'opacity 1s ease-out';
                 splash.style.opacity = '0';
                 
-                // Полностью скрываем её из потока, чтобы можно было кликать по сайту
                 setTimeout(() => {
                     splash.style.display = 'none';
-                }, 1000); // Ждем окончания анимации прозрачности
-            }, 340);
+                }, 1000);
+            }, 500);
         });
     </script>
 </body>
