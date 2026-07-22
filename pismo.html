@@ -1,1 +1,157 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Написать письмо владельцу сайта | Tehno News</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333333;
+            --text-gray: #7f8c8d;
+            --card-bg: #ffffff;
+            --error-color: #e74c3c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+        header {
+            background-color: #ffffff;
+            color: var(--primary-color);
+            padding: 1.4rem;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--accent-color);
+        }
+        .back-link:hover {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            flex: 1;
+            width: 100%;
+        }
+        .article-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+        form {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+        .form-group { margin-bottom: 1.2rem; }
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+        .single-btn-wrapper {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        .main-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+        }
+        .main-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        .hint {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-top: 0.4rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: rgba(0,0,0,0.3);
+            font-size: 0.75rem;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">← На главную</a>
+        <h1>TEHNO NEWS</h1>
+    </header>
+    <main class="container">
+        <h1 class="article-title">Напишите письмо владельцу сайта</h1>
+        <form onsubmit="event.preventDefault(); alert('Спасибо! Письмо отправлено (в демо-режиме).');">
+            <div class="form-group">
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Ваш e-mail</label>
+                <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
+                <div class="hint">На этот адрес придёт подтверждение (если будет настроена отправка)</div>
+            </div>
+            <div class="form-group">
+                <label for="subject">Тема письма</label>
+                <input type="text" id="subject" name="subject" placeholder="Например: Ошибка на странице, предложение по контенту" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение</label>
+                <textarea id="message" name="message" placeholder="Расскажите подробнее..." required></textarea>
+            </div>
+            <div class="single-btn-wrapper">
+                <button type="submit" class="main-btn">Отправить письмо</button>
+            </div>
+        </form>
+    </main>
+    <footer>&copy; 2026 Tehno News. Все права защищены.</footer>
+</body>
+</html>
