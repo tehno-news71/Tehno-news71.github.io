@@ -107,11 +107,6 @@
             transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
         }
-        .hint {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            margin-top: 0.4rem;
-        }
         footer {
             text-align: center;
             padding: 1rem;
@@ -146,7 +141,6 @@
                 <textarea id="message" placeholder="Расскажите подробнее..." required></textarea>
             </div>
             <div class="single-btn-wrapper">
-                <!-- ВСТАВЬ СЮДА СВОЮ ПОЧТУ ВМЕСТО your-email@example.com -->
                 <a id="send-link" href="mailto:tehnonews02@gmail.com?subject=&body=" class="main-btn">Отправить письмо</a>
             </div>
         </form>
@@ -157,16 +151,16 @@
         const name = document.getElementById('name');
         const subject = document.getElementById('subject');
         const message = document.getElementById('message');
+        const email = document.getElementById('email');
         const link = document.getElementById('send-link');
 
         function updateMailto() {
             const s = encodeURIComponent(subject.value || 'Сообщение с сайта Tehno News');
-            const m = encodeURIComponent(`От: ${name.value || 'Гость'}\nE-mail: ${(document.getElementById('email').value) || ''}\n\n${message.value}`);
-            // ВСТАВЬ СЮДА СВОЮ ПОЧТУ ВМЕСТО your-email@example.com
+            const m = encodeURIComponent(`От: ${name.value || 'Гость'}\nE-mail: ${email.value || ''}\n\n${message.value}`);
             link.href = `mailto:tehnonews02@gmail.com?subject=${s}&body=${m}`;
         }
 
-        [name, subject, message].forEach(el => el.addEventListener('input', updateMailto));
+        [name, subject, message, email].forEach(el => el.addEventListener('input', updateMailto));
         updateMailto();
     </script>
 </body>
