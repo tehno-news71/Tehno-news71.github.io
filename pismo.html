@@ -11,7 +11,6 @@
             --text-color: #333333;
             --text-gray: #7f8c8d;
             --card-bg: #ffffff;
-            --error-color: #e74c3c;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -129,29 +128,46 @@
     </header>
     <main class="container">
         <h1 class="article-title">Напишите письмо владельцу сайта</h1>
-        <form onsubmit="event.preventDefault(); alert('Спасибо! Письмо отправлено (в демо-режиме).');">
+        <form>
             <div class="form-group">
                 <label for="name">Ваше имя</label>
-                <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+                <input type="text" id="name" placeholder="Иван Иванов" required>
             </div>
             <div class="form-group">
                 <label for="email">Ваш e-mail</label>
-                <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
-                <div class="hint">На этот адрес придёт подтверждение (если будет настроена отправка)</div>
+                <input type="email" id="email" placeholder="ivan@example.com" required>
             </div>
             <div class="form-group">
                 <label for="subject">Тема письма</label>
-                <input type="text" id="subject" name="subject" placeholder="Например: Ошибка на странице, предложение по контенту" required>
+                <input type="text" id="subject" placeholder="Например: Ошибка на странице" required>
             </div>
             <div class="form-group">
                 <label for="message">Сообщение</label>
-                <textarea id="message" name="message" placeholder="Расскажите подробнее..." required></textarea>
+                <textarea id="message" placeholder="Расскажите подробнее..." required></textarea>
             </div>
             <div class="single-btn-wrapper">
-                <button type="submit" class="main-btn">Отправить письмо</button>
+                <!-- ВСТАВЬ СЮДА СВОЮ ПОЧТУ ВМЕСТО your-email@example.com -->
+                <a id="send-link" href="mailto:tehnonews02@gmail.com?subject=&body=" class="main-btn">Отправить письмо</a>
             </div>
         </form>
     </main>
     <footer>&copy; 2026 Tehno News. Все права защищены.</footer>
+
+    <script>
+        const name = document.getElementById('name');
+        const subject = document.getElementById('subject');
+        const message = document.getElementById('message');
+        const link = document.getElementById('send-link');
+
+        function updateMailto() {
+            const s = encodeURIComponent(subject.value || 'Сообщение с сайта Tehno News');
+            const m = encodeURIComponent(`От: ${name.value || 'Гость'}\nE-mail: ${(document.getElementById('email').value) || ''}\n\n${message.value}`);
+            // ВСТАВЬ СЮДА СВОЮ ПОЧТУ ВМЕСТО your-email@example.com
+            link.href = `mailto:tehnonews02@gmail.com?subject=${s}&body=${m}`;
+        }
+
+        [name, subject, message].forEach(el => el.addEventListener('input', updateMailto));
+        updateMailto();
+    </script>
 </body>
 </html>
