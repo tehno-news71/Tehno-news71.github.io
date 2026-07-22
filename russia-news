@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главные новости России | Tehno News</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333333;
+            --text-gray: #7f8c8d;
+            --card-bg: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+        header {
+            background-color: #ffffff;
+            color: var(--primary-color);
+            padding: 1.4rem;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--accent-color);
+        }
+        .back-link:hover {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            flex: 1;
+            width: 100%;
+        }
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        .article-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+        .article-meta {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        .article-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+        .lavrov-list {
+            list-style: none;
+        }
+        .lavrov-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .lavrov-list li::before {
+            content: "➖";
+            position: absolute;
+            left: 0;
+        }
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: #444;
+        }
+        .single-btn-wrapper {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .main-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+        }
+        .main-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: rgba(0,0,0,0.3);
+            font-size: 0.75rem;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">← На главную</a>
+        <h1>TEHNO NEWS</h1>
+    </header>
+    <main class="container">
+
+        <!-- Новость про Эльбрус -->
+        <h1 class="article-title">На Эльбрусе обнаружили тело 11‑летнего мальчика и его пострадавшего отца</h1>
+        <div class="article-meta">Категория: Происшествия | Время чтения: 3 мин | 19 июля</div>
+        <div class="article-content">
+            <p>Спасатели обнаружили тело подростка на одном из сложных участков маршрута. Его отец был найден в тяжёлом состоянии и экстренно эвакуирован вертолётом в ближайшую больницу.</p>
+            <p>Инцидент стал поводом для усиления контроля за туристическими группами: власти региона заявили о необходимости обязательной регистрации маршрутов и проверки экипировки перед восхождением.</p>
+            <p>Эксперты напоминают, что даже для опытных альпинистов Эльбрус остаётся опасным из‑за резких перепадов погоды и лавинной активности.</p>
+        </div>
+
+        <!-- Заявления Лаврова -->
+        <h2 class="section-title">Главное из заявлений Лаврова по итогам АСЕАН</h2>
+        <div class="article-content">
+            <ul class="lavrov-list">
+                <li>Россия готова к любому развитию событий в контексте милитаризации Евросоюза, но ни на кого нападать не собирается.</li>
+                <li>РФ исходит из того, что американские коллеги пока не отказались от предложений Анкориджа.</li>
+                <li>Никаких предложений по возобновлению черноморской инициативы не было.</li>
+                <li>ООН сыграла «не очень благовидную роль» в черноморской инициативе: она исполнялась односторонне и в интересах Украины.</li>
+                <li>Москва ощущает, что большинство стран АСЕАН с пониманием воспринимает позицию РФ по урегулированию на Украине.</li>
+                <li>Лавров указал на планы удвоить текущий показатель товарооборота между Россией и странами АСЕАН к 2036 году.</li>
+                <li>Саудовской Аравии не требуется разрешение США для обогащения урана в мирных целях.</li>
+                <li>Лавров обсудил с главами МИД АСЕАН создание новой финансовой системы, устойчивой к злоупотреблениям Запада.</li>
+                <li>РФ и КНДР подтвердили намерение укреплять обороноспособность Пхеньяна на фоне агрессивных игр вокруг Корейского полуострова.</li>
+                <li>Информация о разработке Германией собственной ядерной программы действительно вызывает тревогу.</li>
+                <li>Лавров с сожалением отметил, что в ряде стран настроения о необходимости обладания ядерным оружием будут расти после агрессии против Ирана.</li>
+                <li>Продолжение боевых действий вокруг Ормузского пролива не находится в интересах ни США, ни Ирана.</li>
+                <li>Россия хотела бы увидеть прекращение конфликта в Ормузском проливе — он влияет на мировую экономику.</li>
+            </ul>
+        </div>
+
+        <div class="single-btn-wrapper">
+            <a href="index.html" class="main-btn">На главную</a>
+        </div>
+    </main>
+    <footer>&copy; 2026 Tehno News. Все права защищены.</footer>
+</body>
+</html>
